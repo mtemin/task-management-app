@@ -10,8 +10,8 @@ import TaskDetails from './TaskDetails'
 import { useZustand } from '../_providers/Store'
 
 export default function Boards() {
-  const { data: boardsData, isLoading: isBoardsLoading, isError: isBoardsError } = useBoardsQuery("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpYXQiOjE3MTExMDkyMzV9.82P4bhpWs3mo8oHZUwcIuouL2gZ7c3FH5GIFzXvqiao");
-  const { toggleIsDetailsModalVisible: setIsDetailsModalVisible, selectedTask, setSelectedTask } = useZustand();
+  const { toggleIsDetailsModalVisible: setIsDetailsModalVisible, selectedTask, setSelectedTask, token } = useZustand();
+  const { data: boardsData, isLoading: isBoardsLoading, isError: isBoardsError } = useBoardsQuery(token);
   console.log("🚀 ~ Boards ~ boardsData:", boardsData);
 
   function convertDate(date: Date) {
